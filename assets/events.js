@@ -115,6 +115,22 @@
     track('contact_click', { contact_method: 'phone' });
   });
 
+    on('#kakao-chat', 'click', function () {
+    track('contact_click', { contact_method: 'kakao' });
+  });
+
+  on('#review-more', 'click', function () {
+    track('review_more', {
+      review_count: document.querySelectorAll('.review.hidden').length
+    });
+  });
+
+  on('.tab-btn', 'click', function () {
+    track('detail_tab_click', {
+      tab_name: this.getAttribute('data-tab')
+    });
+  });
+
   /* 미션 15: 구독 상담 신청(리드) 폼 → 개인정보 안내 확인 → generate_lead */
   var lead = document.getElementById('lead-form');
   if (lead) {
